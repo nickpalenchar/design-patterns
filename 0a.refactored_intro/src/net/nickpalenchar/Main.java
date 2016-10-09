@@ -13,5 +13,8 @@ public class Main {
         model.performFly();
         model.setFlyBehavior(new FlyRocketPowered());
         model.performFly();
+
+        DuckCall duckCall = new DuckCall();
+        duckCall.performQuack();
     }
 }
