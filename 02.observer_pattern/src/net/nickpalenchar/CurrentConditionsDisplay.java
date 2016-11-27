@@ -3,6 +3,7 @@ package net.nickpalenchar;
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
     private float temperature;
     private float humidity;
+    private float heatIndex;
     private Subject weatherData;
 
     public CurrentConditionsDisplay(Subject weatherData) {
@@ -10,13 +11,15 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
         weatherData.registerObserver(this);
     }
 
-    public void update(float temperature, float humidity, float pressure) {
+    public void update(float temperature, float humidity, float pressure, float heatIndex) {
         this.temperature = temperature;
         this.humidity = humidity;
+        this.heatIndex = heatIndex;
         display();
     }
 
     public void display(){
-        System.out.println("Current Conditions: " + temperature + "F degrees and " + humidity + "%humidity");
+        System.out.println("Current Conditions: " + temperature + "F degrees and " + humidity + " %h umidity" +
+                "\nHeat index " + this.heatIndex );
     }
 }
